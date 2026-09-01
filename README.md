@@ -30,9 +30,9 @@ yoksa uygulamayla gelen yerel JSON'a düşülür.
 | --- | --- | --- |
 | ![Kurulum](screenshots/04_build.png) | ![Karşılaştırma](screenshots/05_compare.png) | ![Boş kurulum](screenshots/06_empty_build.png) |
 
-| Ayarlar |
-| --- |
-| ![Ayarlar](screenshots/07_settings.png) |
+| Sonuç (setup skoru) | Sıralama menüsü | Ayarlar |
+| --- | --- | --- |
+| ![Sonuç](screenshots/08_result.png) | ![Sıralama](screenshots/09_sort.png) | ![Ayarlar](screenshots/07_settings.png) |
 
 ## Özellikler
 
