@@ -1,11 +1,38 @@
 # Budget Build
 
-Sabit bir bütçeyle hayalindeki Apple kurulumunu oluşturan Flutter demo uygulaması.
-Ürün verisi [WANTAPI](https://wantapi.com/products.php) mock servisinden çekilir;
-internet yoksa uygulamayla gelen yerel JSON'a düşülür.
+**Kısa açıklama:** Sabit bir bütçeyle (örn. $2.000 / $5.000 / $10.000) hayalindeki
+Apple kurulumunu oluşturan Flutter demo uygulaması. Kullanıcı katalogdan ürün
+ekledikçe kalan bütçe anlık güncellenir, bütçeyi aşan ürünler kilitlenir ve
+sonunda kurulumun "setup skoru" hesaplanır. Ürün verisi
+[WANTAPI](https://wantapi.com/products.php) mock servisinden çekilir; internet
+yoksa uygulamayla gelen yerel JSON'a düşülür.
 
 > Eğitim ve demo amaçlıdır. Ürün adları ve markalar ilgili sahiplerine aittir;
 > Apple Inc. ile bir bağlantısı yoktur.
+
+## Kullanılan Flutter sürümü
+
+| Araç | Sürüm |
+| --- | --- |
+| Flutter | **3.44.8** (stable) |
+| Dart | 3.12.2 |
+| Android compileSdk | Flutter varsayılanı (SDK 36) |
+
+`.metadata` dosyasındaki revizyon: `058e0af2c2b57e369d905a03ac9748b0ebf543c6`.
+
+## Ekran Görüntüleri
+
+| Ana sayfa | Katalog | Ürün detayı |
+| --- | --- | --- |
+| ![Ana sayfa](screenshots/01_home.png) | ![Katalog](screenshots/02_catalog.png) | ![Ürün detayı](screenshots/03_detail.png) |
+
+| Kurulum (sepet) | Karşılaştırma | Boş kurulum |
+| --- | --- | --- |
+| ![Kurulum](screenshots/04_build.png) | ![Karşılaştırma](screenshots/05_compare.png) | ![Boş kurulum](screenshots/06_empty_build.png) |
+
+| Ayarlar |
+| --- |
+| ![Ayarlar](screenshots/07_settings.png) |
 
 ## Özellikler
 
@@ -40,13 +67,28 @@ lib/
 - **DI:** `get_it`
 - **Kod üretimi:** `json_serializable` (`dart run build_runner build`)
 
-## Çalıştırma
+## Çalıştırma adımları
 
 ```bash
+# 1. Depoyu klonla
+git clone https://github.com/iyteceren/MOBILEPROJECT.git
+cd MOBILEPROJECT
+
+# 2. Bağımlılıkları indir
 flutter pub get
-dart run build_runner build          # .g.dart dosyalarını üretir
+
+# 3. Kod üretimini çalıştır (json_serializable .g.dart dosyaları)
+dart run build_runner build --delete-conflicting-outputs
+
+# 4. Bir emülatör veya cihaz bağlıyken çalıştır
 flutter run
+
+# APK üretmek için:
+flutter build apk --release
 ```
+
+> `.g.dart` dosyaları depoda mevcut olduğundan 3. adım atlanabilir; yalnızca
+> modeller değiştirilirse tekrar çalıştırılması gerekir.
 
 ## Test
 
